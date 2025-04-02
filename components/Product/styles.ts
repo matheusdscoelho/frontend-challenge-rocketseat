@@ -6,10 +6,20 @@ export const ProductContainer = styled.div`
   flex-direction: column;
   border-radius: 12px;
   overflow: hidden;
+  background: #ffffff;
+  cursor: pointer;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+  }
 `;
 
 export const ProductImage = styled(Image)`
   border-radius: 12px 12px 0 0;
+  width: 100%;
+  height: auto;
 `;
 
 export const ProductName = styled.h3`

@@ -4,12 +4,14 @@ import styled from "styled-components";
 
 export const Header = styled.header`
   min-height: 5rem;
+  background: #ffffff;
+  padding: 10px 10rem;
+
 `;
 
 export const Nav = styled.nav`
   display: flex;
   align-items: center;
-
   justify-content: space-between;
 `;
 
@@ -24,8 +26,8 @@ export const Logo = styled(Link)`
 `;
 
 export const SearchBagContainer = styled.div`
-  display: flex;
-  align-items: center;
+display: flex;
+align-items: center;
   gap: 1rem;
 `;
 
@@ -33,6 +35,9 @@ export const InputContainer = styled.div`
   display: flex;
   align-items: center;
   min-width: 22rem;
+  background: var(--gray-100);
+  padding: 10px;
+  border-radius: 8px;
 `;
 
 export const Input = styled.input`
@@ -44,17 +49,19 @@ export const Input = styled.input`
   border: none;
   flex: 1;
   outline: none;
+  background: transparent;
 `;
 
 export const SearchIcon = styled(Image)`
   position: relative;
-  right: 2rem;
+  right: 0.5rem;
 `;
 
 export const ShopBagContainer = styled(Link)`
   display: flex;
   align-items: center;
   text-decoration: none;
+  justify-items: end;
 `;
 
 export const ShopBagText = styled.p`
