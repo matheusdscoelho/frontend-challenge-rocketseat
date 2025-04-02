@@ -1,20 +1,21 @@
 import type { Metadata } from "next";
-import { Saira_Stencil_One, Saira} from "next/font/google";
+import { Saira_Stencil_One, Saira } from "next/font/google";
 import "./globals.css";
 
 import { ReactQueryProvider } from "@/context/ClientProvider";
+import { ProductsProvider } from "@/context/ProductsProvider";
+import StyledComponentsRegistry from "@/lib/registry";
 
 const saira = Saira({
   variable: "--font-saira",
   subsets: ["latin"],
-  weight: ["300","400","500", "600"]
+  weight: ["300", "400", "500", "600"],
 });
-
 
 const sairaStencilOne = Saira_Stencil_One({
   variable: "--font-saira-stencil-one",
   subsets: ["latin"],
-  weight: "400"
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -28,13 +29,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang='en'>
       <body
         className={`${sairaStencilOne.variable} ${saira.variable} antialiased`}
       >
-        <ReactQueryProvider>
-        {children}
-        </ReactQueryProvider>
+        <StyledComponentsRegistry>
+          <ReactQueryProvider>
+            <ProductsProvider>{children}</ProductsProvider>
+          </ReactQueryProvider>
+        </StyledComponentsRegistry>
       </body>
     </html>
   );

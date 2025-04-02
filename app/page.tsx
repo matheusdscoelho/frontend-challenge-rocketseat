@@ -1,15 +1,47 @@
-"use client"
+"use client";
 
-import { useProducts } from "@/hooks/useProducts";
+import Navbar from "@/components/Navbar";
+import { useProductsContext } from "@/context/ProductsProvider";
 import Image from "next/image";
+import { useState } from "react";
+import Skeleton from "react-loading-skeleton";
 
 export default function Home() {
-  const { data: products } = useProducts();
+  const { products, isLoading, error } = useProductsContext();
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
+
+  if (!isLoading) return <Skeleton count={10} width={200} height={300} baseColor="#000"/>;
+  if (error) return <p>Erro ao carregar produtos: {error.message}</p>;
+
+  const totalPages = Math.ceil(products.length / itemsPerPage);
+  const paginatedProducts = products.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
 
   return (
-    <div className='grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]'>
-      <main className='flex flex-col gap-[32px] row-start-2 items-center sm:items-start'>
-        {products?.map((product) => (
+    <div>
+      <Navbar />
+      <div>
+        <button
+          disabled={currentPage === 1}
+          onClick={() => setCurrentPage(currentPage - 1)}
+        >
+          Anterior
+        </button>
+        <span>
+          {currentPage} de {totalPages}
+        </span>
+        <button
+          disabled={currentPage === totalPages}
+          onClick={() => setCurrentPage(currentPage + 1)}
+        >
+          Próximo
+        </button>
+      </div>
+      <main>
+        {paginatedProducts.map((product) => (
           <div key={product.id}>
             <Image
               src={product.image_url}
