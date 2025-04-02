@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Saira_Stencil_One, Saira} from "next/font/google";
 import "./globals.css";
 
+import { ReactQueryProvider } from "@/context/ClientProvider";
+
 const saira = Saira({
   variable: "--font-saira",
   subsets: ["latin"],
@@ -30,7 +32,9 @@ export default function RootLayout({
       <body
         className={`${sairaStencilOne.variable} ${saira.variable} antialiased`}
       >
+        <ReactQueryProvider>
         {children}
+        </ReactQueryProvider>
       </body>
     </html>
   );
