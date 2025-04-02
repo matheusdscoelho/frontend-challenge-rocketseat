@@ -1,2 +1,30 @@
+# Back-End
 api/
-node_modules
+
+# Dependências do Node.js
+node_modules/
+yarn.lock
+
+# Build do Next.js
+.next/
+out/
+
+# Arquivos de ambiente
+.env
+
+# Logs e cache
+yarn-debug.log*
+yarn-error.log*
+.next/cache/
+.vercel/
+dist/
+
+# Cypress
+cypress/screenshots/
+cypress/videos/
+
+# Husky
+.husky/_/
+
+# Editor & Sistema
+.vscode/
