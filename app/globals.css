@@ -11,10 +11,13 @@
   --blue-500: #115d8c;
   --red-500: #de3838;
   --green-500: #51b853;
+
+  --stroke-white: #DCE2E5;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-saira);
+  padding: 0px 10rem;
 }
