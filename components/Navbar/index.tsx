@@ -1,3 +1,5 @@
+"use client"
+
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import {
@@ -44,7 +46,7 @@ function Navbar() {
               value={search}
             />
             <SearchIcon
-              src='search-loupe.svg'
+              src='/search-loupe.svg'
               width={24}
               height={24}
               alt='search icon'
@@ -52,7 +54,7 @@ function Navbar() {
           </InputContainer>
           <ShopBagContainer href='/cart'>
             <Image
-              src='shopping-bag.svg'
+              src='/shopping-bag.svg'
               width={24}
               height={24}
               alt='search icon'

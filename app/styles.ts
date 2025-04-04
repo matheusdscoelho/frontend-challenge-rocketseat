@@ -5,7 +5,7 @@ export const Main = styled.main`
   flex-direction: column;
   gap: 30px;
   flex: 1;
-  padding: 2rem 10rem;
+  padding: 2rem min(10rem, 8%);
 `;
 
 export const FiltersContainer = styled.div`
@@ -13,6 +13,11 @@ export const FiltersContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    gap: 5rem;
+  }
 `;
 
 export const FilterButtons = styled.div`
@@ -34,6 +39,7 @@ export const FilterButton = styled.button<ButtonProps>`
     props.active ? "4px solid var(--orange-300)" : "none"};
   padding-bottom: 4px;
   cursor: pointer;
+  text-transform: uppercase;
 `;
 
 export const SortSelect = styled.select`
@@ -84,4 +90,19 @@ export const ProductsGrid = styled.div`
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(3, auto);
   gap: 3rem;
+
+  @media screen and (max-width: 1200px) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, auto);
+  }
+
+  @media screen and (max-width: 992px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(6, auto);
+  }
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(12, auto);
+  }
 `;

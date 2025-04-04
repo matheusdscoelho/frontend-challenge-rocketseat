@@ -5,6 +5,7 @@ import "./globals.css";
 import { ReactQueryProvider } from "@/context/ClientProvider";
 import { ProductsProvider } from "@/context/ProductsProvider";
 import StyledComponentsRegistry from "@/lib/registry";
+import Navbar from "@/components/Navbar";
 
 const saira = Saira({
   variable: "--font-saira",
@@ -35,7 +36,10 @@ export default function RootLayout({
       >
         <StyledComponentsRegistry>
           <ReactQueryProvider>
-            <ProductsProvider>{children}</ProductsProvider>
+            <ProductsProvider>
+              <Navbar />
+              {children}
+            </ProductsProvider>
           </ReactQueryProvider>
         </StyledComponentsRegistry>
       </body>

@@ -20,6 +20,7 @@ export const ProductImage = styled(Image)`
   border-radius: 12px 12px 0 0;
   width: 100%;
   height: auto;
+  object-fit: cover;
 `;
 
 export const ProductName = styled.h3`

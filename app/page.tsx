@@ -1,6 +1,5 @@
 "use client";
 
-import Navbar from "@/components/Navbar";
 import Product from "@/components/Product";
 import { useProductsContext } from "@/context/ProductsProvider";
 import { useState } from "react";
@@ -50,15 +49,13 @@ if (sortOrder !== "default" && sortOptions[sortOrder]) {
   };
 
   return (
-    <div>
-    <Navbar />
     <Main>
       <FiltersContainer>
         <FilterButtons>
           {[
-            { label: "TODOS OS PRODUTOS", value: "all" },
-            { label: "CAMISETAS", value: "t-shirts" },
-            { label: "CANECAS", value: "mugs" },
+            { label: "Todos os Produtos", value: "all" },
+            { label: "Camisetas", value: "t-shirts" },
+            { label: "Canecas", value: "mugs" },
           ].map(({ label, value }) => (
             <FilterButton key={value} onClick={() => setFilter(value)} active={filter === value ? "active" :""}>
               {label}
@@ -96,6 +93,5 @@ if (sortOrder !== "default" && sortOptions[sortOrder]) {
         ))}
       </ProductsGrid>
     </Main>
-  </div>
   );
 }

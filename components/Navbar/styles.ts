@@ -5,8 +5,7 @@ import styled from "styled-components";
 export const Header = styled.header`
   min-height: 5rem;
   background: #ffffff;
-  padding: 10px 10rem;
-
+  padding: 1rem min(10rem, 8%);
 `;
 
 export const Nav = styled.nav`
@@ -26,8 +25,8 @@ export const Logo = styled(Link)`
 `;
 
 export const SearchBagContainer = styled.div`
-display: flex;
-align-items: center;
+  display: flex;
+  align-items: center;
   gap: 1rem;
 `;
 
@@ -38,6 +37,10 @@ export const InputContainer = styled.div`
   background: var(--gray-100);
   padding: 10px;
   border-radius: 8px;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const Input = styled.input`
@@ -72,7 +75,6 @@ export const ShopBagText = styled.p`
   color: #ffffff;
   font-weight: 500;
   line-height: 26px;
-  
 
   background-color: var(--red-500);
   width: 1.063rem;
