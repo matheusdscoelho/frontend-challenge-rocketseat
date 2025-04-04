@@ -75,15 +75,23 @@ function ProductPage({ params }: ProductPageProps) {
 
   const handleAddToCart = () => {
     const localStorageCart = JSON.parse(localStorage.getItem("cart") ?? "[]");
-    localStorageCart.push(currentProduct.id);
-
+  
+    const existingProductIndex = localStorageCart.findIndex(
+      (item: { id: string; quantity: number }) => item.id === currentProduct.id
+    );
+  
+    if (existingProductIndex !== -1) {
+      localStorageCart[existingProductIndex].quantity += 1;
+    } else {
+      localStorageCart.push({
+        id: currentProduct.id,
+        quantity: 1,
+      });
+    }
+  
     localStorage.setItem("cart", JSON.stringify(localStorageCart));
+  
     toast.success("Produto adicionado ao carrinho!", {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-    });
-    toast.info("Você pode continuar comprando ou finalizar a compra.", {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
